@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Програмна система «Готель»</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <h1>Програмна система «Готель»</h1>
+        <p>Навчальний прототип системи для пошуку та бронювання номерів</p>
+        <nav class="top-nav" aria-label="Навігація сайту">
+            <a href="index.html">Головна</a>
+            <a href="requirements.html">Реєстр вимог</a>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <section class="section">
+            <h2>Статистика готелю</h2>
+            <div id="statistics" class="stats-grid"></div>
+        </section>
+
+        <section class="section">
+            <h2>Пошук номерів</h2>
+
+            <div class="filters">
+                <input type="text" id="searchInput" placeholder="Введіть тип номера">
+
+                <select id="statusFilter">
+                    <option value="all">Усі номери</option>
+                    <option value="Вільний">Тільки вільні</option>
+                    <option value="Заброньований">Заброньовані</option>
+                    <option value="Зайнятий">Зайняті</option>
+                </select>
+
+                <button onclick="filterRooms()">Пошук</button>
+                <button onclick="resetFilters()">Скинути</button>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Список номерів</h2>
+            <div id="roomsList" class="rooms-list"></div>
+        </section>
+
+        <section class="section">
+            <h2>Сценарій використання: Бронювання номера</h2>
+            <div class="scenario-flow" aria-label="Сценарій використання бронювання номера">
+                <div class="scenario-step">
+                    <span class="step-number">1</span>
+                    <h3>Клієнт обирає номер</h3>
+                    <p>Переглядає список номерів і вибирає доступний варіант.</p>
+                </div>
+                <div class="scenario-arrow">→</div>
+                <div class="scenario-step">
+                    <span class="step-number">2</span>
+                    <h3>Вводить дані</h3>
+                    <p>Заповнює ПІБ, телефон, email та дати проживання.</p>
+                </div>
+                <div class="scenario-arrow">→</div>
+                <div class="scenario-step">
+                    <span class="step-number">3</span>
+                    <h3>Створює заявку</h3>
+                    <p>Система зберігає бронювання і змінює статус номера.</p>
+                </div>
+                <div class="scenario-arrow">→</div>
+                <div class="scenario-step">
+                    <span class="step-number">4</span>
+                    <h3>Адміністратор переглядає</h3>
+                    <p>Заявка відображається у списку бронювань.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Бронювання номера</h2>
+
+            <form id="bookingForm" class="booking-form">
+                <label for="clientName">Ім'я клієнта:</label>
+                <input type="text" id="clientName" required>
+
+                <label for="clientPhone">Номер телефону:</label>
+                <input type="text" id="clientPhone" required>
+
+                <label for="clientEmail">Email клієнта:</label>
+                <input type="email" id="clientEmail" required>
+
+                <label for="checkInDate">Дата заїзду:</label>
+                <input type="date" id="checkInDate" required>
+
+                <label for="checkOutDate">Дата виїзду:</label>
+                <input type="date" id="checkOutDate" required>
+
+                <label for="roomNumber">Номер кімнати:</label>
+                <input type="number" id="roomNumber" required>
+
+                <button type="submit">Забронювати</button>
+            </form>
+        </section>
+
+        <section class="section">
+            <h2>Список бронювань</h2>
+            <div id="bookingsList" class="bookings-list">
+                <p>Поки що бронювань немає.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>Навчальний проєкт з дисципліни «Аналіз вимог до програмного забезпечення»</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
